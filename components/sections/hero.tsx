@@ -26,11 +26,11 @@ const socialLinks = [
 ] as const;
 
 const words = [
-  { text: "Building" },
-  { text: "exceptional" },
-  { text: "digital" },
+  { text: "Building", className: "" },
+  { text: "exceptional", className: "" },
+  { text: "digital", className: "" },
   { text: "experiences.", className: "text-blue-500 dark:text-blue-400" },
-] as const;
+];
 
 export function HeroSection() {
   return (
