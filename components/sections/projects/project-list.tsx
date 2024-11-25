@@ -40,76 +40,75 @@ const projects: Project[] = [
     ]
   },
   {
-    title: "AI-Powered Analytics Platform",
-    description: "Enterprise-grade analytics platform using machine learning for predictive insights.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
-    tags: ["Next.js", "Python", "TensorFlow", "AWS"],
-    stars: 128,
+    title: "E-commerce Platform",
+    description: "Modern e-commerce solution with real-time inventory and payment processing.",
+    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&auto=format&fit=crop&q=60",
+    tags: ["Next.js", "Stripe", "PostgreSQL", "Redis"],
+    stars: 89,
     demo: "https://demo.example.com",
     github: "https://github.com/example",
     features: [
-      "Real-time data processing",
-      "Machine learning predictions",
-      "Interactive dashboards",
-      "Custom report generation"
+      "Real-time inventory tracking",
+      "Secure payment processing",
+      "Order management system",
+      "Analytics dashboard"
     ],
     techStack: [
       {
         name: "Next.js",
-        description: "Frontend framework for server-side rendering and optimal performance"
+        description: "Full-stack framework for the modern web"
       },
       {
-        name: "TensorFlow",
-        description: "Machine learning library for predictive analytics"
+        name: "Stripe",
+        description: "Payment processing integration"
       }
     ],
     challenges: [
       {
-        title: "Real-time Data Processing",
-        solution: "Implemented WebSocket connections with Redis pub/sub for live updates"
+        title: "Inventory Sync",
+        solution: "Implemented real-time updates using WebSockets and Redis"
       },
       {
-        title: "ML Model Optimization",
-        solution: "Used TensorFlow.js for client-side predictions reducing server load"
+        title: "Payment Security",
+        solution: "Integrated Stripe Elements with custom UI components"
       }
     ]
   },
   {
-    title: "AI-Powered Analytics Platform",
-    description: "Enterprise-grade analytics platform using machine learning for predictive insights.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
-    tags: ["Next.js", "Python", "TensorFlow", "AWS"],
-    stars: 128,
+    title: "Social Media Dashboard",
+    description: "Comprehensive social media management and analytics platform.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60",
+    tags: ["React", "GraphQL", "Node.js", "MongoDB"],
+    stars: 156,
     demo: "https://demo.example.com",
     github: "https://github.com/example",
     features: [
-      "Real-time data processing",
-      "Machine learning predictions",
-      "Interactive dashboards",
-      "Custom report generation"
+      "Multi-platform integration",
+      "Automated posting",
+      "Analytics tracking",
+      "Content calendar"
     ],
     techStack: [
       {
-        name: "Next.js",
-        description: "Frontend framework for server-side rendering and optimal performance"
+        name: "React",
+        description: "Frontend library for building user interfaces"
       },
       {
-        name: "TensorFlow",
-        description: "Machine learning library for predictive analytics"
+        name: "GraphQL",
+        description: "API query language for efficient data fetching"
       }
     ],
     challenges: [
       {
-        title: "Real-time Data Processing",
-        solution: "Implemented WebSocket connections with Redis pub/sub for live updates"
+        title: "Data Aggregation",
+        solution: "Implemented GraphQL federation for multiple data sources"
       },
       {
-        title: "ML Model Optimization",
-        solution: "Used TensorFlow.js for client-side predictions reducing server load"
+        title: "Real-time Updates",
+        solution: "Used GraphQL subscriptions for live data streaming"
       }
     ]
-  },
-  // Add more projects here
+  }
 ];
 
 export function ProjectList() {
