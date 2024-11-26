@@ -29,8 +29,8 @@ const skills = {
 
 export function ExpertiseSection() {
   return (
-    <section id="expertise" className="w-full min-h-screen py-20">
-      <div className="container mx-auto px-4">
+    <section id="expertise" className="w-full py-24">
+      <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export function ExpertiseSection() {
                       <span>{skill.name}</span>
                       <span>{skill.level}%</span>
                     </div>
-                    <Progress value={skill.level} />
+                    <Progress value={skill.level} className="h-2" />
                   </div>
                 ))}
               </CardContent>
@@ -88,7 +88,7 @@ export function ExpertiseSection() {
                       <span>{skill.name}</span>
                       <span>{skill.level}%</span>
                     </div>
-                    <Progress value={skill.level} />
+                    <Progress value={skill.level} className="h-2" />
                   </div>
                 ))}
               </CardContent>
@@ -113,7 +113,7 @@ export function ExpertiseSection() {
                       <span>{skill.name}</span>
                       <span>{skill.level}%</span>
                     </div>
-                    <Progress value={skill.level} />
+                    <Progress value={skill.level} className="h-2" />
                   </div>
                 ))}
               </CardContent>
