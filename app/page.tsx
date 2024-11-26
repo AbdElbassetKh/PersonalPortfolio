@@ -7,13 +7,15 @@ import { ContactSection } from '@/components/sections/contact';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <HeroSection />
-      <ProjectsSection />
-      <ExpertiseSection />
-      <ResumeSection />
-      <GrowthSection />
-      <ContactSection />
+    <main className="flex min-h-screen flex-col">
+      <div className="flex-1 space-y-24 pb-24">
+        <HeroSection />
+        <ProjectsSection />
+        <ExpertiseSection />
+        <ResumeSection />
+        <GrowthSection />
+        <ContactSection />
+      </div>
     </main>
   );
 }
