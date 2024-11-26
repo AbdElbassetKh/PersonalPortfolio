@@ -5,7 +5,35 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, MessageCircle, Twitter } from "lucide-react";
+
+const socialLinks = [
+  {
+    icon: Mail,
+    href: "mailto:abdelbassetkhettabi@gmail.com",
+    label: "Email",
+  },
+  {
+    icon: Github,
+    href: "https://github.com/AbdElbassetKh",
+    label: "GitHub",
+  },
+  {
+    icon: Linkedin,
+    href: "https://linkedin.com/in/AbdElbassetKh",
+    label: "LinkedIn",
+  },
+  {
+    icon: Twitter,
+    href: "https://twitter.com/AbdElbassetKh",
+    label: "Twitter",
+  },
+  {
+    icon: MessageCircle,
+    href: "https://t.me/AbdElbassetKh",
+    label: "Telegram",
+  },
+] as const;
 
 export function ContactSection() {
   return (
@@ -33,27 +61,25 @@ export function ContactSection() {
           >
             <Card>
               <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+                <CardTitle>Connect With Me</CardTitle>
                 <CardDescription>
                   Feel free to reach out through any of these channels.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <span>abdelbassetkhettabi@gmail.com</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Github className="w-5 h-5 text-primary" />
-                  <span><a href="github.com/AbdElbassetKh"></a>Github Profile</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Linkedin className="w-5 h-5 text-primary" />
-                  <span><a href="linkedin.com/in/AbdElbassetKh">Linkedin Profile</a></span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Twitter className="w-5 h-5 text-primary" />
-                  <span><a href="x.com/AbdElbassetKh">X Profile</a></span>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-4">
+                  {socialLinks.map(({ icon: Icon, href, label }) => (
+                    <a
+                      key={href}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center p-4 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
+                    >
+                      <Icon className="w-5 h-5 text-primary mr-3" />
+                      <span className="font-medium">{label}</span>
+                    </a>
+                  ))}
                 </div>
               </CardContent>
             </Card>
