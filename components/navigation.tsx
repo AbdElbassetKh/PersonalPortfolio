@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { MoonIcon, SunIcon, Menu, X } from "lucide-react";
+import { MoonIcon, SunIcon, Menu } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -12,6 +12,7 @@ const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#projects", label: "Projects" },
   { href: "#expertise", label: "Expertise" },
+  { href: "#resume", label: "Resume" },
   { href: "#growth", label: "Growth" },
   { href: "#contact", label: "Contact" },
 ] as const;
@@ -37,54 +38,60 @@ export function Navigation() {
         isScrolled && "shadow-sm"
       )}
     >
-      <div className="container flex h-14 items-center justify-between">
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="transition-colors hover:text-foreground/80 text-foreground/60 hover:text-foreground"
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+      <div className="container flex h-14 max-w-screen-xl items-center">
+        <div className="flex flex-1 items-center justify-between md:justify-end space-x-2">
+          {/* Mobile Navigation */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon" className="mr-2">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[240px] sm:w-[300px]">
+              <nav className="flex flex-col space-y-4 mt-8">
+                {navLinks.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="text-foreground/60 hover:text-foreground transition-colors px-2 py-1.5 rounded-md hover:bg-accent"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
 
-        {/* Mobile Navigation */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[240px] sm:w-[300px]">
-            <nav className="flex flex-col space-y-4 mt-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex flex-1 items-center justify-center">
+            <ul className="flex space-x-6">
               {navLinks.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="text-foreground/60 hover:text-foreground transition-colors px-2 py-1 rounded-md hover:bg-accent"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {label}
-                </Link>
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm font-medium text-foreground/60 transition-colors hover:text-foreground"
+                  >
+                    {label}
+                  </Link>
+                </li>
               ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
+            </ul>
+          </nav>
 
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="ml-auto md:ml-0"
-          aria-label="Toggle theme"
-        >
-          <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-        </Button>
+          {/* Theme Toggle */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className="ml-auto md:ml-0"
+            aria-label="Toggle theme"
+          >
+            <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          </Button>
+        </div>
       </div>
     </header>
   );
