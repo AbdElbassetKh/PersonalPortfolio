@@ -5,8 +5,8 @@ import { ProjectList } from "./projects/project-list";
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="w-full min-h-screen py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="w-full py-24 bg-secondary/30">
+      <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
