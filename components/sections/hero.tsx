@@ -34,14 +34,15 @@ const words = [
 
 export function HeroSection() {
   return (
-    <section id="home" className="w-full min-h-screen flex flex-col items-center justify-center px-4">
+    <section id="home" className="relative min-h-[calc(100vh-3.5rem)] flex items-center justify-center px-4 py-20">
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center space-y-8 max-w-4xl"
+        className="text-center space-y-8 max-w-4xl mx-auto"
       >
-        <Avatar className="w-32 h-32 mx-auto mb-8 ring-2 ring-primary/10 transition-transform hover:scale-105">
+        <Avatar className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-8 ring-2 ring-primary/10 transition-transform hover:scale-105">
           <AvatarImage 
             src="https://github.com/AbdElbassetKh.png" 
             alt="Abd Elbasset Khettabi"
@@ -51,21 +52,22 @@ export function HeroSection() {
         </Avatar>
 
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             <TypewriterEffect words={words} />
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Senior Full-Stack Developer crafting high-performance web applications
             with modern technologies.
           </p>
         </div>
 
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-wrap gap-4 justify-center">
           {socialLinks.map(({ href, icon: Icon, label }) => (
             <Button
               key={href}
               variant="outline"
               size="lg"
+              className="min-w-[140px]"
               asChild
             >
               <Link href={href} target="_blank" rel="noopener noreferrer">
