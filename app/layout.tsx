@@ -20,7 +20,8 @@ export const metadata: Metadata = {
     title: 'Abd Elbasset Khettabi | Full-Stack Developer',
     description: 'Senior Full-Stack Developer specializing in modern web technologies',
     siteName: 'Abd Elbasset Khettabi Portfolio'
-  }
+  },
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
 };
 
 export default function RootLayout({
@@ -29,12 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <body className={`${inter.className} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
