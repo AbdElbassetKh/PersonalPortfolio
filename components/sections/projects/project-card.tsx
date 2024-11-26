@@ -66,7 +66,7 @@ export function ProjectCard({ project }: { project: Project }) {
                   <DialogDescription>{project.description}</DialogDescription>
                 </DialogHeader>
                 <Tabs defaultValue="overview" className="mt-4">
-                  <TabsList>
+                  <TabsList className="grid w-full grid-cols-3">
                     <TabsTrigger value="overview">Overview</TabsTrigger>
                     <TabsTrigger value="tech">Tech Stack</TabsTrigger>
                     <TabsTrigger value="challenges">Challenges</TabsTrigger>
@@ -82,7 +82,7 @@ export function ProjectCard({ project }: { project: Project }) {
                       />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="font-semibold">Key Features</h3>
+                      <h3 className="text-lg font-semibold">Key Features</h3>
                       <ul className="list-disc list-inside space-y-1">
                         {project.features.map((feature) => (
                           <li key={feature}>{feature}</li>
@@ -91,11 +91,11 @@ export function ProjectCard({ project }: { project: Project }) {
                     </div>
                   </TabsContent>
                   <TabsContent value="tech" className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {project.techStack.map((tech) => (
                         <div key={tech.name} className="p-4 rounded-lg bg-secondary">
                           <h4 className="font-semibold">{tech.name}</h4>
-                          <p className="text-sm text-muted-foreground">{tech.description}</p>
+                          <p className="text-sm text-muted-foreground mt-1">{tech.description}</p>
                         </div>
                       ))}
                     </div>
@@ -109,6 +109,20 @@ export function ProjectCard({ project }: { project: Project }) {
                     ))}
                   </TabsContent>
                 </Tabs>
+                <div className="flex justify-end space-x-2 mt-6">
+                  <Button variant="outline" size="sm" asChild>
+                    <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-4 w-4 mr-2" />
+                      View Code
+                    </Link>
+                  </Button>
+                  <Button variant="default" size="sm" asChild>
+                    <Link href={project.demo} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Live Demo
+                    </Link>
+                  </Button>
+                </div>
               </DialogContent>
             </Dialog>
             <Button variant="outline" size="sm" asChild>
